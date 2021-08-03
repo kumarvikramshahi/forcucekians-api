@@ -20,12 +20,12 @@ Note: Before installing make sure that you have 'Node.js' & 'git' installed in y
 * Clone repositary
 
 ```bash
-git clone https://github.com/kumarvikramshahi/forcucekians-backend-api.git
+git clone https://github.com/kumarvikramshahi/forcucekians-api.git
 ```
 * Change directory to repo
 
 ```bash
-cd forcucekians-backend-api
+cd forcucekians-api
 ```
 * Install dependencies
 
