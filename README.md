@@ -3,6 +3,10 @@ forcucekians is made for collage students, where they can upload and download ma
 <br/><br/>
 [forcucekians frontend repo]( https://github.com/kumarvikramshahi/forcucekians-frontend )
 
+### This project will solve problems of :-
+* those students who don’t like to prepare their own notes and rush for it when exams are near.
+* also of those who prepare their own notes and keep forwarding same material many times (just upload here and it will be accessible to everyone).
+
 ### Technology Stack
 * Node.js - JavaScript runtime environment
 * Express.js - Web application framework for Node.js
@@ -13,14 +17,26 @@ Note: Before installing make sure that you have 'Node.js' & 'git' installed in y
 * Go to folder where you want install this repo.
 * Right click and you will get some options.
 * Click on ' Git Bash Here ' and you will get a linux like [CLI](https://en.wikipedia.org/wiki/Command-line_interface).
-* Run command " git clone https://github.com/kumarvikramshahi/forcucekians-backend-api.git ".
-* After installing run " cd forcucekians-backend-api "
-* Run command "npm install" (this will install all dependencies).
-* npm start (it will start server).
+* Clone repositary
 
-### This project will solve problems of :-
-* those students who don’t prepare their own notes and rush for it when exams are about to get started.
-* forwarding same material many times (just upload here and it will be accessible by anyone).
+```bash
+git clone https://github.com/kumarvikramshahi/forcucekians-backend-api.git
+```
+* Change directory to repo
+
+```bash
+cd forcucekians-backend-api
+```
+* Install dependencies
+
+```bash
+npm install
+```
+* Start server
+
+```bash
+npm start
+```
 
 ### It gives access to collection of :-
 * notes 
@@ -107,4 +123,4 @@ response :-
 ```
 <hr/>
 
-Those are few endpoints that you can use in your projects, for more extra endpoints you can explore this repo.
+Those are few endpoints that you can use in your projects for accessing collections, for more extra endpoints you can explore this repo.
