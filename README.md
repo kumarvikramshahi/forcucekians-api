@@ -1,4 +1,4 @@
-# forcucekians-backend-api
+# forcucekians-api
 forcucekians is made for collage students, where they can upload and download materials like books, notes etc., this repositary is backend of [forcucekians]( https://forcucekians.me/ ) .
 <br/><br/>
 [forcucekians frontend repo]( https://github.com/kumarvikramshahi/forcucekians-frontend )
