@@ -9,8 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "start-server": "node app.js",
-    "start:dev": "NODE_ENV=production node app.js"
+    "start-server": "NODE_ENV=production node app.js",
+    "start:dev": "node app.js"
   },
   "author": "KVS",
   "license": "ISC",
