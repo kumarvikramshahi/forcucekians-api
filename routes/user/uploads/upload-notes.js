@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { body } = require('express-validator');
+const multer = require('multer');
+const uploadFiles = multer({dest : "incomingFileUpload/"});
 
 const uploadNotes = require('../../../controllers/user/uploads/upload-notes').upload_Notes;
 const isAuth = require('../../../utils/is-auth');
@@ -8,6 +10,7 @@ router.post('/uploadNotes',
 
     // Auth middleware
     isAuth,
+    uploadFiles.single('notesFile'),
 
     // Validation
     body('subjectShortName')
@@ -28,9 +31,6 @@ router.post('/uploadNotes',
         .withMessage("Module no. shouldn't exceeds 10 words limit")
         .isLength({ min: 1 })
         .withMessage("Module no. must be at least 1 chars long"),
-    body('fileUrl')
-        .isURL()
-        .withMessage('please enter a valid file URL'),
 
     //controller middleware
     uploadNotes

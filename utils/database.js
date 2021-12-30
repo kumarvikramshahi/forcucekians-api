@@ -4,7 +4,10 @@ const mongoClient = mongodb.MongoClient;
 let _db;
 
 const mongoConnect = (callback) => {
-    mongoClient.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.p8tg6.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
+    mongoClient.connect(
+        process.env.MONGO_CONNECTION_STRING,
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    )
         .then((client) => {
             _db = client.db();
             callback();

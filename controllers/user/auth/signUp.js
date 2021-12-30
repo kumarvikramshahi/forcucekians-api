@@ -5,7 +5,7 @@ const JWT = require('jsonwebtoken');
 const User = require('../../../models/auth/user');
 
 exports.signUp = (req, resp, next) => {
-
+console.log(req.body)
     // Incoming requests.
     const name = req.body.name
     const email = req.body.email

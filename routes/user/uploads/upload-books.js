@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { body } = require('express-validator');
+const multer = require('multer');
+const uploadFiles = multer({ dest: "incomingFileUpload/" });
 
 const uploadBooks = require('../../../controllers/user/uploads/upload-books').upload_Books;
 const isAuth = require('../../../utils/is-auth');
@@ -8,6 +10,7 @@ router.post('/uploadBooks',
 
     // Auth middleware
     isAuth,
+    uploadFiles.single('bookFile'),
 
     // Validation
     body('bookName')
@@ -28,9 +31,6 @@ router.post('/uploadBooks',
         .withMessage("Genre shouldn't exceeds 15 words")
         .isLength({ min: 3 })
         .withMessage("Genre should be atleast of 3 words"),
-    body('fileUrl')
-        .isURL()
-        .withMessage('please enter a valid file URL'),
 
     //controller middleware
     uploadBooks

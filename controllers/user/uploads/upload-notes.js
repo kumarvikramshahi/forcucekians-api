@@ -1,16 +1,32 @@
-const { validationResult } = require('express-validator')
+const { validationResult } = require('express-validator');
+const fs = require('fs');
+const util = require('util');
 
 const Notes = require('../../../models/uploads/notes');
+const { uploadFile } = require('../../../utils/S3_Bucket');
 
-exports.upload_Notes = (req, resp, next) => {
+exports.upload_Notes = async (req, resp, next) => {
 
     //incoming requests.
     const shortName = req.body.subjectShortName;
     const subjectFullName = req.body.subjectFullName;
     const moduleNum = req.body.moduleNum
-    const fileUrl = req.body.fileUrl
+    const notesFile = req.file
     const notesBy = req.body.notesBy
     const userId = req.userId;
+    var fileUrl;
+
+    if (!notesFile) {
+        resp.status(400).json({
+            message: "Please Upload a file"
+        })
+    }
+
+    const fileUploadResult = await uploadFile(notesFile);
+    fileUrl = fileUploadResult.Location;
+    const unlink = util.promisify(fs.unlink);
+    await unlink(notesFile.path)
+    if (!fileUrl) resp.status(400).json({ message: "Not able to upload file, Try again!" })
 
     // Validation & Response.
     const validationErrors = validationResult(req);;

@@ -1,4 +1,5 @@
 // Module imports
+require('dotenv').config({ path: '.env.development.local' });
 const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -23,15 +24,18 @@ const app = express();
 // port declearation
 const PORT = process.env.PORT || 8080;
 
-// Parsers and CORS
+// Parsers
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Setting CORS Headers
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
         'Access-Control-Allow-Methods',
         'OPTIONS, GET, POST, PUT, PATCH, DELETE'
     );
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization');
     next();
 });
 app.use(helmet());

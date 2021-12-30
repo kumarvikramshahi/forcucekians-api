@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { body } = require('express-validator');
+const multer = require('multer');
+const uploadFiles = multer({ dest: "incomingFileUpload/" });
 
 const uploadQuestionPaper = require('../../../controllers/user/uploads/upload-questionPaper').upload_QuestionPaper;
 const isAuth = require('../../../utils/is-auth');
@@ -8,6 +10,7 @@ router.post('/uploadQuestionPaper',
 
     // Auth middleware
     isAuth,
+    uploadFiles.single("questionPaperFile"),
 
     // Validation
     body('questionPaperName')
@@ -28,9 +31,6 @@ router.post('/uploadQuestionPaper',
         .withMessage("Exam type shouldn't exceeds 9 words limit")
         .isLength({ min: 3 })
         .withMessage("Exam type should be atleast of 3 words"),
-    body('fileUrl')
-        .isURL()
-        .withMessage('please enter a valid file URL'),
 
     //controller middleware
     uploadQuestionPaper

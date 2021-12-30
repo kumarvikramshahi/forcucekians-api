@@ -8,22 +8,25 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production node app.js",
+    "start": "nodemon app.js",
     "start-server": "node app.js",
-    "start:dev": "nodemon app.js"
+    "start:dev": "NODE_ENV=production node app.js"
   },
   "author": "KVS",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1048.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-validator": "^6.12.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.10",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.7"
   }
 }
