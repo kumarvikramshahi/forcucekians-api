@@ -42,6 +42,7 @@ app.use(helmet());
 app.use(morgan('combined'));
 
 // Routes
+app.get("/",(req,res)=> "hello from Forcucekians by Kumar Vikram")
 app.use(getNotes);
 app.use(getBooks);
 app.use(getQuestionPaper);
