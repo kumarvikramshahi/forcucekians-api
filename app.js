@@ -1,5 +1,5 @@
 // Module imports
-// require('dotenv').config({ path: '.env.development.local' });
+require('dotenv').config({ path: '.env.development.local' });
 const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -42,7 +42,11 @@ app.use(helmet());
 app.use(morgan('combined'));
 
 // Routes
-app.get("/",(req,res)=> "hello from Forcucekians by Kumar Vikram")
+app.get("/", (req, resp) => {
+    resp.status(200).json({
+        message: "hello from Forcucekians by Kumar Vikram"
+    })
+})
 app.use(getNotes);
 app.use(getBooks);
 app.use(getQuestionPaper);
