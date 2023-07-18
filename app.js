@@ -1,5 +1,5 @@
 // Module imports
-require('dotenv').config({ path: '.env.development.local' });
+// require('dotenv').config({ path: '.env.development.local' });
 const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
