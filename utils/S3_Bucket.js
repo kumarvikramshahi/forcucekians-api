@@ -15,11 +15,11 @@ const s3 = new S3({
 
 // uploads a file to s3
 const uploadFile = (file) => {
-    const fileStream = fs.createReadStream(file.path)
+    // const fileStream = fs.createReadStream(file.path)
 
     const uploadParams = {
         Bucket: bucketName,
-        Body: fileStream,
+        Body: file.data,
         Key: file.originalname.split(".")[0] + "_" + file.filename + "." + file.originalname.split(".")[1]
     }
 

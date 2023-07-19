@@ -24,8 +24,8 @@ exports.upload_Notes = async (req, resp, next) => {
 
     const fileUploadResult = await uploadFile(notesFile);
     fileUrl = fileUploadResult.Location;
-    const unlink = util.promisify(fs.unlink);
-    await unlink(notesFile.path)
+    // const unlink = util.promisify(fs.unlink);
+    // await unlink(notesFile.path)
     if (!fileUrl) resp.status(400).json({ message: "Not able to upload file, Try again!" })
 
     // Validation & Response.

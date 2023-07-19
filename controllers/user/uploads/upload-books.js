@@ -23,8 +23,8 @@ exports.upload_Books = async (req, resp, next) => {
 
     const fileUploadResult = await uploadFile(bookFile);
     fileUrl = fileUploadResult.Location;
-    const unlink = util.promisify(fs.unlink);
-    await unlink(bookFile.path)
+    // const unlink = util.promisify(fs.unlink);
+    // await unlink(bookFile.path)
     if(!fileUrl) resp.status(400).json({message: "Not able to upload file, Try again!"})
 
     // Validation & Response.
