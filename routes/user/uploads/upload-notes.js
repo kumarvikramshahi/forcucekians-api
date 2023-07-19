@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { body } = require('express-validator');
 const multer = require('multer');
-const uploadFiles = multer({dest : "incomingFileUpload/"});
+// const uploadFiles = multer({dest : "incomingFileUpload/"});
 
 const uploadNotes = require('../../../controllers/user/uploads/upload-notes').upload_Notes;
 const isAuth = require('../../../utils/is-auth');
@@ -10,7 +10,7 @@ router.post('/uploadNotes',
 
     // Auth middleware
     isAuth,
-    uploadFiles.single('notesFile'),
+    // uploadFiles.single('notesFile'),
 
     // Validation
     body('subjectShortName')

@@ -22,6 +22,7 @@ exports.upload_Notes = async (req, resp, next) => {
         })
     }
 
+    // // TO DO: see for file upload in proper way
     const fileUploadResult = await uploadFile(notesFile);
     fileUrl = fileUploadResult.Location;
     // const unlink = util.promisify(fs.unlink);

@@ -21,6 +21,7 @@ exports.upload_QuestionPaper = async (req, resp, next) => {
         })
     }
 
+    // TO DO: see for file upload in proper way
     const fileUploadResult = await uploadFile(questionPaperFile);
     fileUrl = fileUploadResult.Location;
     // const unlink = util.promisify(fs.unlink);
